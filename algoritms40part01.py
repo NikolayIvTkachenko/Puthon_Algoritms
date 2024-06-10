@@ -1,6 +1,7 @@
 #https://python-scripts.com/range
 
 from functools import reduce
+import pandas as pd
 
 bin_colors = ['Red', 'Green', 'Blue', 'Yellow']
 print(bin_colors[2:])
@@ -37,3 +38,41 @@ addNum = range(3, 29, 2)
 print(addNum)
 for n in addNum:
     print(n)
+
+bin_colors002 = {
+    "manual_color": "Yellow",
+    "approved_color": "Green",
+    "refused_color": "Red"
+}
+
+print(bin_colors002)
+
+print(bin_colors002.get('approved_color'))
+print(bin_colors002['approved_color'])
+
+bin_colors002['approved_color'] = "Purple"
+print(bin_colors002)
+
+#sets
+
+green01 = {'green', 'leaves', 'green'}
+print(green01)
+
+yellow = {'dandelions', 'fire hydrant', 'leaves'}
+red = {'fire hydrant', 'blood', 'rose', 'leaves'}
+
+print(yellow|red)
+print(yellow&red)
+
+#data frame
+
+df = pd.DataFrame([
+    ['1', 'Fares', 32, True],
+    ['2', 'Elena', 23, False],
+    ['3', 'Steven', 40, True]
+])
+
+df.columns = ['id', 'name', 'age', 'decision']
+
+print(df)
+print(df[['name', 'age']])
