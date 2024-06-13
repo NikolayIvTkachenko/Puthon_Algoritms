@@ -45,7 +45,9 @@ def brute_force(cities):
 def shortest_tour(tours): return min(tours, key=distance_tour())
 
 #matplotlib inline
+#% matplotlib inline
 import matplotlib.pyplot as plt
+
 def visualize_tour(tour, style='bo-'):
     if len(tour) > 1000: plt.figure(figsize=(15, 10))
     start = tour[0: 1]
