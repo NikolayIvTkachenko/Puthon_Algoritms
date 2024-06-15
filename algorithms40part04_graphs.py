@@ -109,3 +109,26 @@ labels[9]=r'9 NF'
 nx.draw_networkx_labels(G3, pos, labels, font_size=16)
 
 
+#k means
+from sklearn import cluster
+import pandas as pd
+import numpy as np
+
+dataset = pd.DataFrame({
+'x':[11, 21, 28, 17, 29, 33, 24, 45, 45,52, 51, 52, 55, 53, 55, 61, 62, 70, 72, 10],
+'y':[39, 36, 30, 52, 53, 46, 55, 59, 63, 70, 66, 63, 58, 23, 14, 8, 18, 7, 24, 10]
+})
+
+mKmeans = cluster.KMeans(n_clusters=2)
+mKmeans.fit(dataset)
+
+centroids = mKmeans.cluster_centers_
+labels=mKmeans.labels_
+
+print(labels)
+print(centroids)
+
+import matplotlib.pyplot as plt
+plt.scatter(dataset['x'], dataset['y'], s=10)
+plt.scatter(centroids[0], centroids[1], s=100)
+plt.show()
